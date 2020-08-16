@@ -5,14 +5,14 @@ export default class CreateTransactions1597496950060
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'transaction',
+        name: 'transactions',
         columns: [
           {
             name: 'id',
             type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
-            default: 'uuid_generated_v4()',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'title',
@@ -44,6 +44,6 @@ export default class CreateTransactions1597496950060
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('transaction');
+    await queryRunner.dropTable('transactions');
   }
 }
